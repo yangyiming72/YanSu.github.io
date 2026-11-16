@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>澪</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%2314142b'/%3E%3Cpath d='M16 7l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z' fill='%23c9a86a'/%3E%3C/svg%3E">
+<style>
+  /* ============================================================
+     【全局配色 / 字体】想换主题色，只改这里的变量即可
+     ============================================================ */
+  :root{
+    --bg:#000000;          /* 页面底色 */
+    --panel:#ffffff;       /* 卡片底色 */
+    --panel-2:#2c2c4e;     /* 卡片悬浮 / 次级底色 */
+    --line:#3d3d63;        /* 分隔线 */
+    --text:#eef2ff;        /* 主文字 */
+    --text-sub:#9ca3c7;    /* 次要文字 */
+    --accent:#c9a86a;      /* 强调金 */
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+    line-height:1.7;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:2rem 1.25rem;}
+
+  .back-btn{
+    display:inline-flex;align-items:center;gap:.4rem;
+    color:var(--text-sub);font-size:1rem;margin-bottom:1.5rem;
+    border:1px solid var(--line);border-radius:10px;padding:.45rem .9rem;
+    transition:.2s;
+  }
+  .back-btn:hover{color:var(--accent);border-color:var(--accent);}
+
+  h1.page-title{
+    text-align:center;font-weight:600;letter-spacing:.15em;
+    margin-bottom:2.25rem;color:var(--text);
+  }
+
+  /* ============ 封面页 ============ */
+  body.cover-page{padding:0;overflow:hidden;}
+
+
+
+
+  /* ============ 角色列表 ============ */
+  .oc-grid{display:grid;grid-template-columns:1fr;gap:1.75rem;}
+  @media(min-width:700px){.oc-grid{grid-template-columns:repeat(3,1fr);}}
+  .oc-card{
+    background:var(--panel);border-radius:16px;padding:1.25rem;text-align:center;
+    transition:.25s;
+  }
+  .oc-card:hover{background:var(--panel-2);transform:translateY(-6px);}
+  .oc-card .pic{
+    width:100%;height:380px;border-radius:12px;overflow:hidden;margin-bottom:1rem;
+    background:#0e0e22;
+  }
+  .oc-card .pic img{width:100%;height:100%;object-fit:cover;}
+  .oc-card a.name{font-size:1.3rem;font-weight:600;letter-spacing:.15em;}
+
+  /* ============ 角色详情 ============ */
+  .detail-head{text-align:center;margin-bottom:2rem;}
+  .detail-head h1{font-size:2rem;letter-spacing:.2em;}
+  .section-block{
+    background:var(--panel);border-radius:14px;padding:1.5rem;margin-bottom:1.75rem;
+  }
+  .section-block h2{
+    color:var(--accent);border-left:3px solid var(--accent);
+    padding-left:.75rem;margin-bottom:1rem;font-weight:600;letter-spacing:.1em;
+  }
+  .section-block h3{
+    color:var(--accent);font-size:1.05rem;letter-spacing:.1em;
+    margin:1.25rem 0 .4rem;font-weight:600;
+  }
+  .todo{color:var(--text-sub);font-size:.88rem;margin:.5rem 0;}
+  .img-box{margin:.5rem 0;}
+  .img-box img{max-width:420px;border-radius:10px;background:#0e0e22;}
+  .placeholder-text{color:var(--text-sub);}
+
+
+  .ch-nav a:hover{color:var(--accent);border-color:var(--accent);}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a href="characters.html" class="back-btn">← 返回角色列表</a>
+  <!-- 【角色名 · 原文件此处写的是“羽绪”，如需要请自行修改】 -->
+  <div class="detail-head"><h1>澪</h1></div>
+
+  <section class="section-block">
+    <h2>人物立绘</h2>
+    <div class="img-box"><img src="linglihui.png" alt="澪立绘"></div>
+    <p class="todo"></p>
+  </section>
+
+  <section class="section-block">
+    <h2>背景故事</h2>
+    <p class="placeholder-text">澪并非生物，而是由渝纪的魔力凝聚而成的。以渝纪的一颗眼睛为媒介，澪拥有了主观体验和渝纪的记忆。零作为在渝纪的领域内唯一的“人”，他同情渝纪的处境，也知道他一直以来的艰辛，于是澪作为他唯一的伙伴，与他一同度过那些难熬的时光，给他的人生增添一抹色彩。</p>
+  </section>
+
+  <section class="section-block">
+    <h2>能力</h2>
+
+    <div class="img-box"><img src="yu&ling.png" alt="澪能力示意图"></div>
+    <h3>共感</h3>
+    <p class="placeholder-text">澪作为渝纪的复制体，能依靠渝纪的眼睛建立二人感官与意识的共享</p>
+
+    <div class="img-box"><img src="lingjineng.png" alt="澪能力示意图"></div>
+    <h3>魔力感知</h3>
+    <p class="placeholder-text">作为纯粹由魔力构筑出的存在，您可以敏锐的察觉到空气中的魔力的流动，以及他们的归属于哪里。借助这一能力澪可以察觉到敌人的来袭</p>
+  </section>
+
+  <section class="section-block">
+    <h2>其他形象</h2>
+    <div class="img-box">
+      <img src="lingsan.png" alt="其他形象 1">
+      <p class="todo">拿伞的样子</p>
+    </div>
+    <p class="placeholder-text"></p>
+  </section>
+</div>
+
+</body>
+</html>

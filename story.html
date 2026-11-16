@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>沉海 · 剧情</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%2314142b'/%3E%3Cpath d='M16 7l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z' fill='%23c9a86a'/%3E%3C/svg%3E">
+<style>
+  /* ============================================================
+     【全局配色 / 字体】想换主题色，只改这里的变量即可
+     ============================================================ */
+  :root{
+    --bg:#14142b;          /* 页面底色 */
+    --panel:#22223f;       /* 卡片底色 */
+    --panel-2:#2c2c4e;     /* 卡片悬浮 / 次级底色 */
+    --line:#3d3d63;        /* 分隔线 */
+    --text:#eef2ff;        /* 主文字 */
+    --text-sub:#9ca3c7;    /* 次要文字 */
+    --accent:#c9a86a;      /* 强调金 */
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+background: linear-gradient(rgba(20,20,43,.6),rgba(20,20,43,.6)), url("back.png") center/cover no-repeat fixed;
+    color:var(--text);
+    font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+    line-height:1.7;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  img{display:block;max-width:100%;}
+  .wrap{max-width:1100px;margin:0 auto;padding:2rem 1.25rem;}
+  .back-btn{
+    display:inline-flex;align-items:center;gap:.4rem;
+    color:var(--text-sub);font-size:1rem;margin-bottom:1.5rem;
+    border:1px solid var(--line);border-radius:10px;padding:.45rem .9rem;
+    transition:.2s;
+  }
+  .back-btn:hover{color:var(--accent);border-color:var(--accent);}
+  h1.page-title{
+    text-align:center;font-weight:600;letter-spacing:.15em;
+    margin-bottom:2.25rem;color:var(--text);
+  }
+  /* ============ 封面页 ============ */
+  body.cover-page{padding:0;overflow:hidden;}
+  .cover{
+    position:fixed;inset:0;cursor:pointer;
+    /* 【封面背景图 · 待替换】换成你自己的背景图文件名 */
+    background:
+      linear-gradient(rgba(20,20,43,.55),rgba(20,20,43,.55)),
+      url("cover.png") center/cover no-repeat;
+  }
+  .cover-inner{
+    height:100%;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;text-align:center;
+    padding:2rem;gap:1.25rem;
+  }
+  .cover-inner h1{font-size:clamp(1.8rem,6vw,3rem);letter-spacing:.3em;font-weight:600;}
+  .cover-sub{color:var(--text-sub);letter-spacing:.3em;font-size:.95rem;}
+  .cover-tip{
+    color:var(--text-sub);letter-spacing:.2em;font-size:.9rem;
+    animation:blink 2.2s ease-in-out infinite;
+  }
+  @keyframes blink{0%,100%{opacity:.45;}50%{opacity:1;}}
+  /* ============ 选项页 ============ */
+  .menu-grid{display:grid;grid-template-columns:1fr;gap:1.5rem;max-width:760px;margin:0 auto;}
+  .menu-card{
+    background:var(--panel);border:1px solid var(--line);
+    border-radius:18px;padding:2.5rem 1.75rem;text-align:center;
+    transition:.25s;display:block;
+  }
+  .menu-card:hover{background:var(--panel-2);transform:translateY(-4px);border-color:var(--accent);}
+  .menu-card h2{font-size:1.5rem;letter-spacing:.2em;margin-bottom:.5rem;color:var(--text);}
+  .menu-card p{color:var(--text-sub);font-size:.95rem;}
+  /* ============ 角色列表 ============ */
+  .oc-grid{display:grid;grid-template-columns:1fr;gap:1.75rem;}
+  @media(min-width:700px){.oc-grid{grid-template-columns:repeat(3,1fr);}}
+  .oc-card{
+    background:var(--panel);border-radius:16px;padding:1.25rem;text-align:center;
+    transition:.25s;
+  }
+  .oc-card:hover{background:var(--panel-2);transform:translateY(-6px);}
+  .oc-card .pic{
+    width:100%;height:380px;border-radius:12px;overflow:hidden;margin-bottom:1rem;
+    background:#0e0e22;
+  }
+  .oc-card .pic img{width:100%;height:100%;object-fit:cover;}
+  .oc-card a.name{font-size:1.3rem;font-weight:600;letter-spacing:.15em;}
+  /* ============ 角色详情 ============ */
+  .detail-head{text-align:center;margin-bottom:2rem;}
+  .detail-head h1{font-size:2rem;letter-spacing:.2em;}
+  .section-block{
+    background:var(--panel);border-radius:14px;padding:1.5rem;margin-bottom:1.75rem;
+  }
+  .section-block h2{
+    color:var(--accent);border-left:3px solid var(--accent);
+    padding-left:.75rem;margin-bottom:1rem;font-weight:600;letter-spacing:.1em;
+  }
+  .section-block h3{
+    color:var(--accent);font-size:1.05rem;letter-spacing:.1em;
+    margin:1.25rem 0 .4rem;font-weight:600;
+  }
+  .todo{color:var(--text-sub);font-size:.88rem;margin:.5rem 0;}
+  .img-box{margin:.5rem 0;}
+  .img-box img{max-width:420px;border-radius:10px;background:#0e0e22;}
+  .placeholder-text{color:var(--text-sub);}
+  /* ============ 剧情 ============ */
+  .chapter{background:var(--panel);border-radius:16px;padding:1.75rem;margin-bottom:2rem;}
+  .chapter .ch-no{color:var(--accent);letter-spacing:.3em;font-size:.85rem;margin-bottom:.4rem;}
+  .chapter h2{font-size:1.4rem;margin-bottom:1rem;letter-spacing:.1em;}
+  .chapter .ch-cover{margin:1rem 0;border-radius:12px;overflow:hidden;background:#0e0e22;}
+  .chapter .ch-cover img{width:100%;max-height:340px;object-fit:cover;}
+  .chapter p.body{margin:.75rem 0;}
+
+  /* ---【修改】小说风半透明磨砂章节卡片 --- */
+  .ch-list{display:grid;grid-template-columns:1fr;gap:1.25rem;}
+  @media(min-width:700px){.ch-list{grid-template-columns:repeat(2,1fr);}}
+
+  .ch-link-card{
+    display:block;
+    /* 半透明磨砂玻璃效果 */
+    background: rgba(44, 44, 78, 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border:1px solid rgba(61, 61, 99, 0.45);
+    border-radius:14px;
+    padding:1.8rem 1.6rem;
+    transition:0.3s ease;
+    text-align:left;
+  }
+  .ch-link-card:hover{
+    background: rgba(44, 44, 78, 0.55);
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 8px 24px rgba(201, 168, 106, 0.12);
+  }
+  .ch-link-card .ch-no{color:var(--accent);letter-spacing:.3em;font-size:.85rem;margin-bottom:.6rem;}
+  .ch-link-card h2{font-size:1.2rem;letter-spacing:.1em;margin-bottom:.5rem;color:var(--text);}
+  .ch-link-card p{color:var(--text-sub);font-size:.9rem;}
+
+  .ch-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem;}
+  .ch-nav a{
+    color:var(--text-sub);border:1px solid var(--line);border-radius:10px;
+    padding:.5rem 1rem;font-size:.9rem;transition:.2s;
+  }
+  .ch-nav a:hover{color:var(--accent);border-color:var(--accent);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a href="menu.html" class="back-btn">← 返回选项页</a>
+  <h1 class="page-title">剧情</h1>
+  <div class="ch-list">
+    <a class="ch-link-card" href="ch1.html">
+      <div class="ch-no">CHAPTER 01</div>
+      <!-- 【章节一标题 · 待补充】与 ch1.html 内标题保持一致 -->
+      <h2>第一章卷 遴选之境：潮与星芒</h2>
+      <p class="placeholder-text"></p>
+    </a>
+    <a class="ch-link-card" href="ch2.html">
+      <div class="ch-no">CHAPTER 02</div>
+      <!-- 【章节二标题 · 待补充】 -->
+      <h2>第二卷 澜星执卫：废墟探秘</h2>
+      <p class="placeholder-text"></p>
+    </a>
+    <a class="ch-link-card" href="ch3.html">
+      <div class="ch-no">CHAPTER 03</div>
+      <!-- 【章节三标题 · 待补充】 -->
+      <h2>第三卷 王冠桎梏：禁忌之途</h2>
+      <p class="placeholder-text"></p>
+    </a>
+    <!-- 新增第四章 -->
+    <a class="ch-link-card" href="ch4.html">
+      <div class="ch-no">CHAPTER 04</div>
+      <h2>第四卷 夜中微光</h2>
+      <p class="placeholder-text">本章待补充……</p>
+    </a>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>？？？</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%2314142b'/%3E%3Cpath d='M16 7l2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7z' fill='%23c9a86a'/%3E%3C/svg%3E">
+<style>
+  /* ============================================================
+     【全局配色 / 字体】想换主题色，只改这里的变量即可
+     ============================================================ */
+  :root{
+    --bg:#14142b;          /* 页面底色 */
+    --panel:#22223f;       /* 卡片底色 */
+    --panel-2:#2c2c4e;     /* 卡片悬浮 / 次级底色 */
+    --line:#3d3d63;        /* 分隔线 */
+    --text:#eef2ff;        /* 主文字 */
+    --text-sub:#9ca3c7;    /* 次要文字 */
+    --accent:#c9a86a;      /* 强调金 */
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:"Microsoft YaHei","PingFang SC",system-ui,sans-serif;
+    line-height:1.7;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  img{display:block;max-width:100%;}
+
+  .wrap{max-width:1100px;margin:0 auto;padding:2rem 1.25rem;}
+
+  .back-btn{
+    display:inline-flex;align-items:center;gap:.4rem;
+    color:var(--text-sub);font-size:1rem;margin-bottom:1.5rem;
+    border:1px solid var(--line);border-radius:10px;padding:.45rem .9rem;
+    transition:.2s;
+  }
+  .back-btn:hover{color:var(--accent);border-color:var(--accent);}
+
+  h1.page-title{
+    text-align:center;font-weight:600;letter-spacing:.15em;
+    margin-bottom:2.25rem;color:var(--text);
+  }
+}
+
+  /* ============ 角色详情 ============ */
+  .detail-head{text-align:center;margin-bottom:2rem;}
+  .detail-head h1{font-size:2rem;letter-spacing:.2em;}
+  .section-block{
+    background:var(--panel);border-radius:14px;padding:1.5rem;margin-bottom:1.75rem;
+  }
+  .section-block h2{
+    color:var(--accent);border-left:3px solid var(--accent);
+    padding-left:.75rem;margin-bottom:1rem;font-weight:600;letter-spacing:.1em;
+  }
+  .section-block h3{
+    color:var(--accent);font-size:1.05rem;letter-spacing:.1em;
+    margin:1.25rem 0 .4rem;font-weight:600;
+  }
+  .todo{color:var(--text-sub);font-size:.88rem;margin:.5rem 0;}
+  .img-box{margin:.5rem 0;}
+  .img-box img{max-width:420px;border-radius:10px;background:#0e0e22;}
+  .placeholder-text{color:var(--text-sub);}
+
+
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <a href="characters.html" class="back-btn">← 返回角色列表</a>
+  <div class="detail-head"><h1>？？？</h1></div>
+
+  <section class="section-block">
+    <h2>人物立绘</h2>
+    <div class="img-box"><img src="konglihui.png" alt="角色立绘"></div>
+    <p class="todo"></p>
+  </section>
+
+  <section class="section-block">
+    <h2>背景故事</h2>
+    <p class="placeholder-text">你无从知晓???的过去，单你能确认他和渝纪很像。从他那令人不安的气场来看，他绝对经历过极大的打击。???掌握着现已失传的古代魔法，行迹诡异，有伤害他人的案例，被视作为王国的公敌</p>
+  </section>
+
+  <section class="section-block">
+    <h2>能力</h2>
+
+    <div class="img-box"><img src="kongjineng.png" alt="能力示意图"></div>
+    <h3>古代魔法</h3>
+    <p class="placeholder-text">古代魔法被视作为黑魔法，他们有着不同于现代魔法的可怕力量，但同时也有很大的副作用，使用它们的时候稍有不慎将酿成大祸。但???能熟练使用古代魔法，没人知道他是从哪学到这些的</p>
+
+    <div class="img-box"><img src="kongjineng2.png" alt="能力示意图"></div>
+    <h3>驾驭汪洋</h3>
+    <p class="placeholder-text">???在一定程度上可以控制海洋的流动，还可以控制海洋生物为他所用，其身边常年伴随着一只拥有金色瞳孔的鲸鱼作为他的护卫</p>
+  </section>
+
+  <section class="section-block">
+    <h2>其他形象</h2>
+    <p class="todo">暂无</p>
+    <div class="img-box">
+      <!-- 【其他形象图片 · 需要时取消注释】
+      <img src="assets/oc2_other1.png" alt="其他形象 1">
+      -->
+    </div>
+  </section>
+</div>
+
+</body>
+</html>
